@@ -1,8 +1,9 @@
 package com.example.demo.Controller;
 
-import com.example.demo.Entity.Cours;
+import com.example.demo.Entity.Absence;
+import com.example.demo.Entity.Note;
 import com.example.demo.Entity.User;
-import com.example.demo.Service.CoursService;
+import com.example.demo.Service.NoteService;
 import com.example.demo.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -10,34 +11,35 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin
 @RequestMapping(path = "api/v1/student")
-public class CoursController {
+public class NoteController {
 
-    private final CoursService coursService;
+    private final NoteService noteService;
 
     @Autowired
-    public CoursController(CoursService coursService) {
-        this.coursService = coursService;
+    public NoteController(NoteService noteService) {
+        this.noteService = noteService;
     }
 
-    @GetMapping(path = "getCourses")
-    public List<Cours> getCourses(){
-    return coursService.getCourses();
+    @GetMapping(path = "getNotes")
+    public List<Note> getNotes(){
+    return noteService.getNotes();
     }
 
-    @GetMapping(path = "{motcleCours}")
-    public List<Cours> getCoursesWithMotCle(@PathVariable("motcleCours") String motcleCours){
-        return coursService.getCoursesWithMotCle(motcleCours);
-    }
-    @PostMapping(path = "addcours")
-    public void authentifierUser(@RequestBody Cours cours){
-        coursService.addCours(cours);
-    }
+    /*@PostMapping(path = "noteModule")
+    public List<Object> getModulePrctng(@RequestBody Absence absence){
+        return absenceService.getModulePrctng(absence);
+    }*/
 
-    /*@PostMapping(path = "inscription")
+    /*@PostMapping(path = "authentification")
+    public void authentifierUser(@RequestBody User user){
+        userService.authentifier(user);
+    }*/
+
+    /*
+    @PostMapping(path = "inscription")
     public void registerNewUser(@RequestBody User user){
-        coursService.inscription(user);
+        userService.inscription(user);
     }*/
 
     /*@DeleteMapping(path = "{userId}")
