@@ -25,9 +25,9 @@ public class AbsenceController {
     return absenceService.getAbsences();
     }
 
-    @PostMapping(path = "pourcetage")
-    public List<Object> getModulePrctng(@RequestBody Absence absence){
-        return absenceService.getModulePrctng(absence);
+    @PostMapping(path = "prct/{userId}")
+    public List<Object> getModulePrctng(@PathVariable("userId") Long userId){
+        return absenceService.getModulePrctng(userId);
     }
 
     //findByprcntAbsence

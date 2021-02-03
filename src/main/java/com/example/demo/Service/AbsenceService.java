@@ -23,8 +23,8 @@ public class AbsenceService {
     }
 ///////////////////////////////////////
 
-    public List<Object> getModulePrctng(Absence absence) {
-        return absenceRepository.findByprcntAbsence(absence.getIdModule(),absence.getIdUser());
+    public List<Object> getModulePrctng(long idUser) {
+        return absenceRepository.findByprcntAbsence(idUser);
     }
 ///////////////////////////////////////////
 

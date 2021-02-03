@@ -16,21 +16,24 @@ public class Module {
     private String nameModule;
     private long idSemestre;
     private int nbrSeance;
+    private long idUser;
 
     public Module() {
     }
 
-    public Module(String nameModule, long idSemestre, int nbrSeance) {
+    public Module(String nameModule, long idSemestre, int nbrSeance, long idUser) {
         this.nameModule = nameModule;
         this.idSemestre = idSemestre;
         this.nbrSeance = nbrSeance;
+        this.idUser = idUser;
     }
 
-    public Module(long idModule, String nameModule, long idSemestre, int nbrSeance) {
+    public Module(long idModule, String nameModule, long idSemestre, int nbrSeance, long idUser) {
         this.idModule = idModule;
         this.nameModule = nameModule;
         this.idSemestre = idSemestre;
         this.nbrSeance = nbrSeance;
+        this.idUser = idUser;
     }
 
     public long getIdModule() {
@@ -65,6 +68,14 @@ public class Module {
         this.nbrSeance = nbrSeance;
     }
 
+    public long getIdUser() {
+        return idUser;
+    }
+
+    public void setIdUser(long idUser) {
+        this.idUser = idUser;
+    }
+
     @Override
     public String toString() {
         return "Module{" +
@@ -72,8 +83,8 @@ public class Module {
                 ", nameModule='" + nameModule + '\'' +
                 ", idSemestre=" + idSemestre +
                 ", nbrSeance=" + nbrSeance +
+                ", idUser=" + idUser +
                 '}';
     }
-
 }
 
