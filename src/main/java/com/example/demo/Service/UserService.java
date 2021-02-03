@@ -25,7 +25,7 @@ public class UserService {
     }
 ///////////////////////////////////////
 
-    @ResponseBody
+    //@ResponseBody
     public User authentifier(String emailUser, String passwordUser) {
         //Optional<User> userbyEmail = userrepository.findUserByEmailUser(user.getEmailUser());
         return userrepository.findByemilpass(emailUser,passwordUser);
@@ -40,9 +40,10 @@ public class UserService {
 ///////////////////////////////////////////
 
     ///////////////////////////////////////
-
-    public void inscription(User user) {
+    //@ResponseBody
+    public User inscription(User user) {
         userrepository.save(user);
+        return user;
     }
 ///////////////////////////////////////////
 

@@ -24,15 +24,16 @@ public class UserController {
     }
 
 
-    @GetMapping(path = "authentification/{emailUser}/{passwordUser}")
+    @PostMapping(path = "authentification/{emailUser}/{passwordUser}")
     @ResponseBody
     public User authentifierUser(@PathVariable("emailUser") String emailUser,@PathVariable("passwordUser") String passwordUser){
         return userService.authentifier(emailUser,passwordUser);
     }
 
     @PostMapping(path = "inscription")
-    public void registerNewUser(@RequestBody User user){
-        userService.inscription(user);
+    @ResponseBody
+    public User registerNewUser(@RequestBody User user){
+        return userService.inscription(user);
     }
 
     /*@DeleteMapping(path = "{userId}")
