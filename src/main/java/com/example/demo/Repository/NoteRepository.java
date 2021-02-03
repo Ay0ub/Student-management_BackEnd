@@ -12,6 +12,7 @@ import java.util.Optional;
 @Repository
 public interface NoteRepository extends JpaRepository<Note,Long> {
 
-    @Query("SELECT m.nameModule, n.Note FROM Note n, Semestre s, Module m where n.idUser= ?1 and s.idSemestre= ?2 and s.idModule=m.idModule")
-    List<Object> findBynoteModule(long idSemestre, long iduser) ;
+
+    @Query("SELECT m.nameModule, n.Note FROM Note n, Semestre s, Module m where n.idUser= ?1 and s.idSemestre= ?2 and m.idModule=n.idModule and s.idSemestre=m.idSemestre")
+    List<Object> findBynoteModule(long iduser, long idSemestre);
 }

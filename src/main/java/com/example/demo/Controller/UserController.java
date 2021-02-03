@@ -24,9 +24,10 @@ public class UserController {
     }
 
 
-    @PostMapping(path = "authentification")
-    public void authentifierUser(@RequestBody User user){
-        userService.authentifier(user);
+    @GetMapping(path = "authentification/{emailUser}/{passwordUser}")
+    @ResponseBody
+    public User authentifierUser(@PathVariable("emailUser") String emailUser,@PathVariable("passwordUser") String passwordUser){
+        return userService.authentifier(emailUser,passwordUser);
     }
 
     @PostMapping(path = "inscription")

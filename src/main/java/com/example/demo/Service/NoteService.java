@@ -21,8 +21,12 @@ public class NoteService {
     }
 
 
-    public List<Note> getNotes() {
+   /* public List<Note> getNotes() {
         return noteepository.findAll();
+    }*/
+
+    public List<Object> getUserNote(long idUser, long idSemestre) {
+        return noteepository.findBynoteModule(idUser, idSemestre);
     }
 ///////////////////////////////////////
 

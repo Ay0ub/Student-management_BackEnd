@@ -24,13 +24,13 @@ public class ModuleService {
     }
 ///////////////////////////////////////
 
-    public void authentifier(User user) {
+    /*public void authentifier(User user) {
         Optional<User> userbyEmail = userrepository.findUserByEmailUser(user.getEmailUser());
         if (userbyEmail.isPresent()) {
             System.out.println("go to page home");
         }
         else System.out.println("return to login page");
-    }
+    }/*
 ///////////////////////////////////////////
 
     ///////////////////////////////////////

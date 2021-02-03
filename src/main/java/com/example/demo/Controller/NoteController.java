@@ -6,6 +6,7 @@ import com.example.demo.Entity.User;
 import com.example.demo.Service.NoteService;
 import com.example.demo.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,15 +22,15 @@ public class NoteController {
         this.noteService = noteService;
     }
 
-    @GetMapping(path = "getNotes")
+    /*@GetMapping(path = "getNotes")
     public List<Note> getNotes(){
     return noteService.getNotes();
-    }
-
-    /*@PostMapping(path = "noteModule")
-    public List<Object> getModulePrctng(@RequestBody Absence absence){
-        return absenceService.getModulePrctng(absence);
     }*/
+
+    @PostMapping(path = "getUserNote/{idUser}/{idSemestre}")
+    public List<Object> getUserNote(@PathVariable("idUser") long idUser, @PathVariable("idSemestre") long idSemestre){
+        return noteService.getUserNote(idUser,idSemestre);
+    }
 
     /*@PostMapping(path = "authentification")
     public void authentifierUser(@RequestBody User user){

@@ -4,10 +4,9 @@ import com.example.demo.Entity.User;
 import com.example.demo.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.transaction.Transactional;
 import java.util.List;
-import java.util.Objects;
 import java.util.Optional;
 
 @Service
@@ -26,12 +25,17 @@ public class UserService {
     }
 ///////////////////////////////////////
 
-    public void authentifier(User user) {
-        Optional<User> userbyEmail = userrepository.findUserByEmailUser(user.getEmailUser());
-        if (userbyEmail.isPresent()) {
-            System.out.println("go to page home");
+    @ResponseBody
+    public User authentifier(String emailUser, String passwordUser) {
+        //Optional<User> userbyEmail = userrepository.findUserByEmailUser(user.getEmailUser());
+        return userrepository.findByemilpass(emailUser,passwordUser);
+        //Optional<User> userbyidd = userrepository.findById(user.getIdUser());
+
+        /*if (user==null) {
+           // throw new IllegalStateException("Id doesnt exists");
+            return null;
         }
-        else System.out.println("return to login page");
+        else return user;*/
     }
 ///////////////////////////////////////////
 

@@ -15,20 +15,17 @@ public class Semestre {
     )
     private long idSemestre;
     private String nameSemestre;
-    private long idModule;
 
     public Semestre() {
     }
 
-    public Semestre(String nameSemestre, long idModule) {
+    public Semestre(String nameSemestre) {
         this.nameSemestre = nameSemestre;
-        this.idModule = idModule;
     }
 
-    public Semestre(long idSemestre, String nameSemestre, long idModule) {
+    public Semestre(long idSemestre, String nameSemestre) {
         this.idSemestre = idSemestre;
         this.nameSemestre = nameSemestre;
-        this.idModule = idModule;
     }
 
     public long getIdSemestre() {
@@ -47,20 +44,11 @@ public class Semestre {
         this.nameSemestre = nameSemestre;
     }
 
-    public long getIdModule() {
-        return idModule;
-    }
-
-    public void setIdModule(long idModule) {
-        this.idModule = idModule;
-    }
-
     @Override
     public String toString() {
         return "Semestre{" +
                 "idSemestre=" + idSemestre +
                 ", nameSemestre='" + nameSemestre + '\'' +
-                ", idModule=" + idModule +
                 '}';
     }
 }
