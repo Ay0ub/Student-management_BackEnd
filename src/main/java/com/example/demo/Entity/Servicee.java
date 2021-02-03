@@ -15,22 +15,25 @@ public class Servicee {
     )
     private long idService;
     private String nameService;
-    private String etatService="refuser";
+    private String etatService;
+    LocalDate dateService;
     private long idUser;
 
     public Servicee() {
     }
 
-    public Servicee(String nameService, String etatService, long idUser) {
+    public Servicee(String nameService, String etatService, LocalDate dateService, long idUser) {
         this.nameService = nameService;
         this.etatService = etatService;
+        this.dateService = dateService;
         this.idUser = idUser;
     }
 
-    public Servicee(long idService, String nameService, String etatService, long idUser) {
+    public Servicee(long idService, String nameService, String etatService, LocalDate dateService, long idUser) {
         this.idService = idService;
         this.nameService = nameService;
         this.etatService = etatService;
+        this.dateService = dateService;
         this.idUser = idUser;
     }
 
@@ -58,6 +61,14 @@ public class Servicee {
         this.etatService = etatService;
     }
 
+    public LocalDate getDateService() {
+        return dateService;
+    }
+
+    public void setDateService(LocalDate dateService) {
+        this.dateService = dateService;
+    }
+
     public long getIdUser() {
         return idUser;
     }
@@ -68,10 +79,11 @@ public class Servicee {
 
     @Override
     public String toString() {
-        return "Service{" +
+        return "Servicee{" +
                 "idService=" + idService +
                 ", nameService='" + nameService + '\'' +
                 ", etatService='" + etatService + '\'' +
+                ", dateService=" + dateService +
                 ", idUser=" + idUser +
                 '}';
     }

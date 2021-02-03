@@ -20,7 +20,7 @@ public class ServiceeController {
     }
 
     @GetMapping(path = "getServices")
-    public List<Servicee> getServices(){
+    public List<Object> getServices(){
     return serviceeService.getServices();
     }
 
@@ -29,9 +29,15 @@ public class ServiceeController {
         serviceeService.insertService(servicee);
     }
 
-    @PutMapping(path = "{idService}")
-    public void updatetatService(@PathVariable("idService") long idService){
-            serviceeService.updatetatService(idService);
+    @GetMapping(path = "getServicebyStudent/{idUser}")
+    @ResponseBody
+    public List <Servicee> getServicebyStudent(@PathVariable("idUser") long idUser){
+        return serviceeService.getServicebyStudent(idUser);
+    }
+
+    @PutMapping(path = "updateetatservice/{idService}/{etatService}")
+    public void updatetatService(@PathVariable("idService") long idService,@PathVariable("etatService") String etatService){
+            serviceeService.updatetatService(idService,etatService);
     }
 
 

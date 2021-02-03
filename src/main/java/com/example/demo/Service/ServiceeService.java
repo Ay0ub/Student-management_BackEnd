@@ -1,13 +1,13 @@
 package com.example.demo.Service;
 
 import com.example.demo.Entity.Servicee;
-import com.example.demo.Entity.User;
 import com.example.demo.Repository.ServiceeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ServiceeService {
@@ -20,8 +20,8 @@ public class ServiceeService {
     }
 
 
-    public List<Servicee> getServices() {
-        return serviceerepository.findAll();
+    public List<Object> getServices() {
+        return serviceerepository.findByallservices();
     }
 ///////////////////////////////////////
 
@@ -31,26 +31,15 @@ public class ServiceeService {
     }
 ///////////////////////////////////////////
 
+    public List<Servicee> getServicebyStudent(long idUser) {
+        return serviceerepository.findByserviceuser(idUser);
+    }
+
     @Transactional
-    public void updatetatService(long idService) {
+    public void updatetatService(long idService, String etatService) {
 
         Servicee servicee = serviceerepository.findById(idService).orElseThrow(()->new IllegalStateException("id doesnt exist to update"));
-       /* if (name != null && name.length()>0 && !Objects.equals(student.getName(),name))
-        {
-            student.setName(name);
-        }
-        if (email != null && email.length()>0 && !Objects.equals(student.getEmail(),email))
-        {
-            Optional<Student> studentOptional = studentrepository.findStudentByEmail(email);
-            if (studentOptional.isPresent())
-            {
-                throw new IllegalStateException("email is taken");
-            }*/
-            servicee.setEtatService("accepter");
-        //}
-
-        //servicee.setEtatService("accepter");
-        //Optional<Servicee> studentOptional = serviceerepository.findOne(servicee);
+            servicee.setEtatService(etatService);
     }
 
 
